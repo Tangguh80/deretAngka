@@ -1,0 +1,372 @@
+/*============== Google fonts ============*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+/*===================== Globals =================*/
+*{
+ font-family: 'Ubuntu', sans-serif;
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+:root{
+    --birutua:#03236B;
+    --birumuda:#163991;
+    --yellow:#FFCA41;
+    --light-yellow: #ffdd55; 
+    --green:#11bb11;
+    --white: #fff;
+    --gray :#f5f5f5;
+    --black1 :#222;
+    --black2 :#999;
+}
+
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+.navbar {
+    height: 70px;
+    padding: 10px 20px;
+    background-image: linear-gradient(to right, var(--birutua) 0%, var(--birumuda) 100%);
+    text-align: center;
+    color: var(--birumuda);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #countdown {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .time-section {
+    background-color: var(--birumuda);
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 1.5px solid var(--white);
+  }
+  
+  #minutes, #seconds {
+    font-size: 15px;
+    color: var(--white);
+    font-weight: bold;
+  }
+  
+  .time-label {
+    display: block;
+    font-size: 8px;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Pagination container and navigation buttons */
+.container1 {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-kiri ion-icon, .btn-kanan ion-icon {
+    color: var(--black1);
+    font-size: 20px;
+}
+
+.btn-kiri, .btn-kanan {
+    margin: 0 10px;
+    height: 45px;
+    width: 45px;
+    background-color: var(--yellow);
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid var(--birumuda);
+}
+
+.btn-kiri:hover, .btn-kanan:hover {
+    background-color: var(--light-yellow);
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Pagination buttons styling */
+.contpagination {
+    flex-grow: 1;
+    border-radius: 5px;
+    height: 45px;
+    background-color: #f0f0f0;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--birumuda);
+    overflow: hidden;
+    padding: 5px;
+}
+
+.contpagination button {
+    margin: 0 3px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid var(--birumuda);
+}
+
+
+
+.contpagination button.active {
+    background-color: #4285f4;
+    color: white;
+}
+
+.contpagination button:hover {
+    background-color: var(--light-yellow);
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    display: flex;
+    margin: 0 55px;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: var(--white);
+  }
+
+  .contsoal {
+    width: 48%;
+    height: 48%; 
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 2px solid var(--birumuda);
+  }
+
+  .contjawaban {
+    width: 48%; 
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 2px solid var(--birumuda);
+  }
+
+
+
+
+
+  .jawaban {
+    margin: 10px 0;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid var(--birumuda);
+    padding: 0px;           /* Padding di dalam kotak */
+    transition: background-color 0s ease; /* Transisi warna background */
+  }
+  
+  .jawaban input[type="radio"] {
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .jawaban label {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start;
+    cursor: pointer;
+    width: 100%; 
+    height: 50px;
+  }
+  
+  .jawaban:hover {
+    background-color: yellow; 
+  }
+  
+
+  .contsoal{
+    text-align: left; 
+  }
+
+  .contjawaban {
+    text-align: left; 
+  }
+
+
+
+
+  .button-container {
+    display: flex;
+    justify-content: space-between; 
+    padding: 0px; 
+  }
+  
+  .button-container button {
+    padding: 10px 10px; 
+    background-color: var(--birumuda); 
+    color: var(--white);
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
+  }
+  
+  .button-container button:hover {
+    background-color: var(--birutua); 
+  }
+  
+
+
+
+  .contsoal p {
+    display: inline-block; 
+    margin-right: 10px; 
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @media (max-width: 1024px){
+    .container {
+        flex-direction: column; /* Mengatur item-item flex untuk tumpuk vertikal */
+        align-items: center; /* Menengahkan item-item secara horizontal */
+    }
+    .contsoal {
+        width: 100%; /* Membuat lebar masing-masing container menjadi penuh */
+        height: auto; /* Mengatur kembali tinggi agar sesuai konten */
+        margin-bottom: 10px;
+    }
+
+    .contjawaban {
+        width: 100%; /* Membuat lebar masing-masing container menjadi penuh */
+        height: auto; /* Mengatur kembali tinggi agar sesuai konten */
+    }
+    
+    
+  }
+
+
+  @media (max-width: 768px){
+    .container {
+      display: flex;
+      margin: 0 5px;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: var(--white);
+    }
+  
+    .contsoal {
+      width: 105%;
+      height: 48%; 
+      padding: 30px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border: 2px solid var(--birumuda);
+    }
+  
+    .contjawaban {
+      width: 105%; 
+      padding: 30px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border: 2px solid var(--birumuda);
+    }
+  }
