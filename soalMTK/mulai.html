@@ -23,6 +23,28 @@
         </div>
       </nav>
 
+      <div class="overlay-Timeout" id="overlay-Time">
+        <div class="notification">
+            <h1>Waktu Habis</h1>
+            <img src="https://raw.githubusercontent.com/Tangguh80/CxProgramer/50c4995f8355238b4f1ce57976fe4032241da13d/time.svg" alt="Time out" style="width: 200px; height: 200px; vertical-align: middle; ">
+            <p>Tekan tombol untuk melihat hasil yang anda kerjakan</p>
+            <button class="button">Lihat Hasil</button>
+        </div>
+    </div>
+
+
+
+
+    <div class="overlay-Relog" id="overlay-Relog">
+      <div class="notification2" id="notification2">
+        <button class="btn-close" id="btn-close">&times;</button>
+        <h1>Mengulang?</h1>
+        <img src="https://raw.githubusercontent.com/Tangguh80/deretAngka/a11f3a1256e0d842ae71258622d6f72dc88856b5/refresh.svg" alt="Refresh" style="width: 200px; height: 200px; vertical-align: middle; animation: spin 30s linear infinite;">
+        <p>Jika anda mengulang Progress yang anda kerjakan tidak akan tersimpan</p>
+        <button class="btn-refresh">Refresh</button>
+      </div>
+    </div>
+
       
 
 
@@ -34,10 +56,8 @@
 
 
 
-  
     <div class="container" id="container-page-1" style="display: none;">
       <div class="contsoal">
-        <p>soal nomor 1</p>
         <p id="soalangka1">1</p>,
         <p id="soalangka2">2</p>,
         <p id="soalangka3">3</p>,
@@ -191,6 +211,7 @@
 
 <script>
 
+/*====================================================== Generate soal ===============================================================*/
 
 document.addEventListener("DOMContentLoaded", function () {
   generateQuestions();
@@ -267,6 +288,7 @@ function generateWrongAnswers(correctAnswer, count) {
 
 
 
+/*======================================================= Generate nomor halaman =============================================================*/
 
 const totalPages = 50; // Total halaman yang Anda miliki
 
@@ -337,6 +359,16 @@ document.addEventListener("DOMContentLoaded", () => {
     goToPage(1); // Memastikan halaman pertama ditampilkan
 });
 
+
+
+
+
+
+
+
+
+/*================================================ fungsi btn next dan sebelumnya ===========================================================*/
+
 document.addEventListener('DOMContentLoaded', () => {
     const buttonsNext = document.querySelectorAll('#btn-next');
     const buttonsPrev = document.querySelectorAll('#btn-sebelumnya');
@@ -398,35 +430,34 @@ window.onresize = () => {
 
 
 
+/*================================================= coundown time  ==========================================================================*/
 
 const countdownDuration = 15 * 60 * 1000;  // 15 minutes
-const endTime = Date.now() + countdownDuration;
+        const endTime = Date.now() + countdownDuration;
 
-function updateCountdown() {
-  const now = new Date().getTime();
-  const distance = endTime - now;
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = endTime - now;
 
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  document.getElementById('minutes').textContent = ('0' + minutes).slice(-2);
-  document.getElementById('seconds').textContent = ('0' + seconds).slice(-2);
+            document.getElementById('minutes').textContent = ('0' + minutes).slice(-2);
+            document.getElementById('seconds').textContent = ('0' + seconds).slice(-2);
 
-  if (distance < 0) {
-    clearInterval(timer);
-    document.getElementById('minutes').textContent = '00';
-    document.getElementById('seconds').textContent = '00';
-  }
-}
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                document.getElementById('overlay-Time').style.display = 'flex'; // Show overlay
+            } else if (distance <= 2 * 60 * 1000) { // If 2 minutes or less remaining
+                const color = seconds % 2 === 0 ? 'var(--red)' : 'var(--white)';
+                document.getElementById('minutes').style.color = color;
+                document.getElementById('seconds').style.color = color;
+            }
+        }
 
-let timer = setInterval(updateCountdown, 1000);
-
-
-
-
-
-
-
+        let timer = setInterval(updateCountdown, 1000);
 
 
 
@@ -444,6 +475,14 @@ let timer = setInterval(updateCountdown, 1000);
 
 
 
+
+
+
+
+
+
+
+/*================================= menyimpan warna checked pada nomor halaman =======================================================*/
 
 let checkedPages = {};  // Menggunakan objek biasa tanpa localStorage
 
@@ -543,6 +582,7 @@ function resetCheckedStatus() {
 
 
 
+/*========================================== Menyimpan pilihan jawaban per halaman ============================================================*/
 
 document.addEventListener("DOMContentLoaded", function () {
   generateQuestions();
@@ -629,7 +669,7 @@ function restoreSelections() {
 
 
 
-
+/*======================================== memberi warna backgroun .jawaban ===========================================================*/
 
 document.addEventListener('DOMContentLoaded', function() {
   // Mendapatkan semua input radio dalam elemen dengan kelas 'jawaban'
@@ -659,6 +699,57 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let shouldRefresh = false;
+
+window.addEventListener('beforeunload', function (e) {
+  if (!shouldRefresh) {
+    e.preventDefault();
+    document.getElementById('overlay-Relog').style.display = 'flex';
+    return false;
+  }
+});
+
+document.querySelector('.btn-refresh').addEventListener('click', function() {
+  shouldRefresh = true;
+  window.location.reload();
+});
+
+document.querySelector('.btn-close').addEventListener('click', function() {
+  document.getElementById('overlay-Relog').style.display = 'none';
+});
+
+// Close overlay when clicking outside the notification
+document.getElementById('overlay-Relog').addEventListener('click', function(event) {
+  if (event.target === this) {
+    document.getElementById('overlay-Relog').style.display = 'none';
+  }
+});
+
+// Prevent clicks inside the notification from closing the overlay
+document.getElementById('notification2').addEventListener('click', function(event) {
+  event.stopPropagation();
+});
 
 </script>
 
