@@ -1,13 +1,762 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mulai.css">
+    <link rel="shortcut icon" type="image/png" href="https://github.com/Tangguh80/CxProgramer/blob/main/icon%20mtk.png?raw=true">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/css/ionicons.min.css">
     <title>Deret | Angka</title>
 </head>
 <body>
-    <script>
-        // Skrip untuk mengarahkan ke halaman LoadingConfirm/Loading.html setelah 5 detik
-        setTimeout(function() {
-            window.location.href = "soalMTK/mulai.html";
-        }, 0);
-    </script>
+
+    <nav class="navbar">
+        <div id="countdown">
+          <div class="time-section">
+            <span id="minutes">00</span>
+            <span class="time-label">menit</span>
+          </div>
+          <div class="time-section">
+            <span id="seconds">00</span>
+            <span class="time-label">detik</span>
+          </div>
+        </div>
+      </nav>
+
+      <div class="overlay-Timeout" id="overlay-Time">
+        <div class="notification">
+            <h1>Waktu Habis</h1>
+            <img src="https://raw.githubusercontent.com/Tangguh80/CxProgramer/50c4995f8355238b4f1ce57976fe4032241da13d/time.svg" alt="Time out" style="width: 200px; height: 200px; vertical-align: middle; ">
+            <p>Tekan tombol untuk melihat hasil yang anda kerjakan</p>
+            <button class="button">Lihat Hasil</button>
+        </div>
+    </div>
+
+
+
+
+    <div class="overlay-Relog" id="overlay-Relog">
+      <div class="notification2" id="notification2">
+        <button class="btn-close" id="btn-close">&times;</button>
+        <h1>Mengulang?</h1>
+        <img src="https://raw.githubusercontent.com/Tangguh80/deretAngka/a11f3a1256e0d842ae71258622d6f72dc88856b5/refresh.svg" alt="Refresh" style="width: 200px; height: 200px; vertical-align: middle; animation: spin 30s linear infinite;">
+        <p>Jika anda mengulang Progress yang anda kerjakan tidak akan tersimpan</p>
+        <button class="btn-refresh">Refresh</button>
+      </div>
+    </div>
+
+      
+
+
+      <div class="container1">
+        <button class="btn-kiri" id="prev-slide"><ion-icon name="arrow-back-outline"></ion-icon></button>
+        <div class="contpagination" id="pagination-container"></div>
+        <button class="btn-kanan" id="next-slide"><ion-icon name="arrow-forward-outline"></ion-icon></button>
+    </div>  
+
+
+
+    <div class="container" id="container-page-1" style="display: none;">
+      <div class="contsoal">
+        <p id="soalangka1">1</p>,
+        <p id="soalangka2">2</p>,
+        <p id="soalangka3">3</p>,
+        <p id="soalangka4">4</p>,
+        <p id="soalangka5">5</p>,
+        <p id="soalangka6">6</p>
+      </div>
+
+      <div class="contjawaban">
+        <p>Pilih jawaban :</p>
+        <div class="jawaban">
+          <input type="radio" id="jawaban" name="jawaban" class="radio-input" />
+          <label for="jawaban1">Jawaban 1</label>
+        </div>
+        <div class="jawaban">
+          <input type="radio" id="jawaban" name="jawaban" class="radio-input" />
+          <label for="jawaban2">Jawaban 2</label>
+        </div>
+        <div class="jawaban">
+          <input type="radio" id="jawaban" name="jawaban" class="radio-input" />
+          <label for="jawaban3">Jawaban 3</label>
+        </div>
+        <div class="jawaban">
+          <input type="radio" id="jawaban" name="jawaban" class="radio-input" />
+          <label for="jawaban4">Jawaban 4</label>
+        </div>
+
+        <div class="button-container">
+          <button id="btn-sebelumnya">Sebelum</button>
+          <button id="btn-next">Berikut</button>
+        </div>    
+      </div>
+  </div>
+  
+  <div class="container" id="container-page-2" style="display: none;">
+    <div class="contsoal">
+      <p id="soalangka1">1</p>,
+      <p id="soalangka2">2</p>,
+      <p id="soalangka3">3</p>,
+      <p id="soalangka4">4</p>,
+      <p id="soalangka5">5</p>,
+      <p id="soalangka6">6</p>
+    </div>
+
+    <div class="contjawaban">
+      <p>Pilih jawaban :</p>
+      <div class="jawaban">
+        <input type="radio" id="jawaban1" name="jawaban" class="radio-input" />
+        <label for="jawaban1">Jawaban 1</label>
+      </div>
+      <div class="jawaban">
+        <input type="radio" id="jawaban2" name="jawaban" class="radio-input" />
+        <label for="jawaban2">Jawaban 2</label>
+      </div>
+      <div class="jawaban">
+        <input type="radio" id="jawaban3" name="jawaban" class="radio-input" />
+        <label for="jawaban3">Jawaban 3</label>
+      </div>
+      <div class="jawaban">
+        <input type="radio" id="jawaban4" name="jawaban" class="radio-input" />
+        <label for="jawaban4">Jawaban 4</label>
+      </div>
+
+      <div class="button-container">
+        <button id="btn-sebelumnya">Sebelum</button>
+        <button id="btn-next">Berikut</button>
+      </div>    
+    </div>
+  </div>
+
+
+
+  <div class="container" id="container-page-3" style="display: none;">
+    <div class="contsoal">
+      <p id="soalangka1">1</p>,
+      <p id="soalangka2">2</p>,
+      <p id="soalangka3">3</p>,
+      <p id="soalangka4">4</p>,
+      <p id="soalangka5">5</p>,
+      <p id="soalangka6">6</p>
+    </div>
+
+    <div class="contjawaban">
+      <p>Pilih jawaban :</p>
+      <div class="jawaban">
+        <input type="radio" id="jawaban1" name="jawaban" class="radio-input" />
+        <label for="jawaban1">Jawaban 1</label>
+      </div>
+      <div class="jawaban">
+        <input type="radio" id="jawaban2" name="jawaban" class="radio-input" />
+        <label for="jawaban2">Jawaban 2</label>
+      </div>
+      <div class="jawaban">
+        <input type="radio" id="jawaban3" name="jawaban" class="radio-input" />
+        <label for="jawaban3">Jawaban 3</label>
+      </div>
+      <div class="jawaban">
+        <input type="radio" id="jawaban4" name="jawaban" class="radio-input" />
+        <label for="jawaban4">Jawaban 4</label>
+      </div>
+
+      <div class="button-container">
+        <button id="btn-sebelumnya">Sebelum</button>
+        <button id="btn-next">Berikut</button>
+      </div>    
+    </div>
+  </div>
+
+  <div class="container" id="container-page-4" style="display: none;">
+    <div class="contsoal">
+      <p id="soalangka1">1</p>,
+      <p id="soalangka2">2</p>,
+      <p id="soalangka3">3</p>,
+      <p id="soalangka4">4</p>,
+      <p id="soalangka5">5</p>,
+      <p id="soalangka6">6</p>
+    </div>
+
+    <div class="contjawaban">
+      <p>Pilih jawaban :</p>
+      <div class="jawaban">
+        <input type="radio" id="jawaban1" name="jawaban" class="radio-input" />
+        <label for="jawaban1">Jawaban 1</label>
+      </div>
+      <div class="jawaban">
+        <input type="radio" id="jawaban2" name="jawaban" class="radio-input" />
+        <label for="jawaban2">Jawaban 2</label>
+      </div>
+      <div class="jawaban">
+        <input type="radio" id="jawaban3" name="jawaban" class="radio-input" />
+        <label for="jawaban3">Jawaban 3</label>
+      </div>
+      <div class="jawaban">
+        <input type="radio" id="jawaban4" name="jawaban" class="radio-input" />
+        <label for="jawaban4">Jawaban 4</label>
+      </div>
+
+      <div class="button-container">
+        <button id="btn-sebelumnya">Sebelum</button>
+        <button id="btn-next">Berikut</button>
+      </div>    
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+<script>
+
+/*====================================================== Generate soal ===============================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+  generateQuestions();
+});
+
+function generateQuestions() {
+  const totalPages = 50; // Sesuaikan dengan jumlah halaman yang Anda miliki
+  for (let i = 1; i <= totalPages; i++) {
+    generateSeries(i);
+  }
+}
+
+function generateSeries(pageNumber) {
+  const seriesLength = 5; // Seri berisi 5 angka, tanda tanya di posisi ke-6
+  let startNumber = Math.floor(Math.random() * 10) + 1;
+  let step = Math.floor(Math.random() * 5) + 1;
+  let series = Array.from({ length: seriesLength }, (_, index) => startNumber + index * step);
+  let missingIndex = Math.floor(Math.random() * seriesLength); // Pilih indeks acak untuk diganti dengan tanda tanya
+  let correctAnswer = series[missingIndex]; // Jawaban yang benar adalah angka yang akan diganti
+
+  series[missingIndex] = '?'; // Ganti angka dengan tanda tanya
+
+  displayQuestion(pageNumber, series, correctAnswer);
+}
+
+
+function displayQuestion(pageNumber, series, correctAnswer) {
+  const container = document.getElementById('container-page-' + pageNumber);
+  const soalElements = container.querySelectorAll('.contsoal p');
+  series.forEach((number, index) => {
+    soalElements[index].textContent = number;
+  });
+
+  let answers = generateWrongAnswers(correctAnswer, 3);
+  answers.push(correctAnswer);
+  answers.sort(() => Math.random() - 0.5); // Acak jawaban
+
+  const jawabanElements = container.querySelectorAll('.jawaban');
+  answers.forEach((answer, index) => {
+    const radioInput = jawabanElements[index].querySelector('input');
+    const label = jawabanElements[index].querySelector('label');
+    radioInput.value = answer;
+    label.textContent =  + answer;
+  });
+}
+
+function generateWrongAnswers(correctAnswer, count) {
+  let answers = new Set();
+  while (answers.size < count) {
+    let wrongAnswer = correctAnswer + (Math.floor(Math.random() * 10) - 5);
+    // Pastikan jawaban salah tidak sama dengan jawaban yang benar dan tidak nol
+    if (wrongAnswer !== correctAnswer && wrongAnswer !== 0) {
+      answers.add(wrongAnswer);
+    }
+  }
+  return Array.from(answers);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*======================================================= Generate nomor halaman =============================================================*/
+
+const totalPages = 50; // Total halaman yang Anda miliki
+
+function getItemsPerPage() {
+    if (window.matchMedia("(min-width: 1024px)").matches) {
+        return 18; // Jumlah halaman yang ditampilkan pada Desktop
+    } else if (window.matchMedia("(min-width: 768px)").matches) {
+        return 12; // Jumlah halaman yang ditampilkan pada Tablet
+    } else {
+        return 4; // Jumlah halaman yang ditampilkan pada Mobile
+    }
+}
+
+const paginationContainer = document.getElementById('pagination-container');
+const prevSlide = document.getElementById('prev-slide');
+const nextSlide = document.getElementById('next-slide');
+
+
+let currentPage = 1; // Halaman aktif awal
+let currentStartPage = 1; // Halaman mulai untuk pagination yang ditampilkan
+
+function generatePagination(startPage) {
+    const itemsPerPage = getItemsPerPage();
+    paginationContainer.innerHTML = '';
+
+    let endPage = Math.min(totalPages, startPage + itemsPerPage - 1);
+
+    for (let page = startPage; page <= endPage; page++) {
+        const pageBtn = document.createElement('button');
+        pageBtn.textContent = page;
+        pageBtn.className = page === currentPage ? 'active' : '';
+        pageBtn.onclick = () => goToPage(page);
+        paginationContainer.appendChild(pageBtn);
+    }
+}
+
+function goToPage(page) {
+    if (page < 1 || page > totalPages) return;
+    currentPage = page;
+    currentStartPage = Math.max(1, page - Math.floor(getItemsPerPage() / 2));
+    generatePagination(currentStartPage);
+    updatePageVisibility(page);
+}
+
+function updatePageVisibility(page) {
+    for (let i = 1; i <= totalPages; i++) {
+        const container = document.getElementById('container-page-' + i);
+        if (container) {
+            container.style.display = i === page ? 'flex' : 'none';
+        }
+    }
+}
+
+prevSlide.onclick = () => {
+    currentStartPage = Math.max(1, currentStartPage - getItemsPerPage());
+    generatePagination(currentStartPage);
+};
+
+nextSlide.onclick = () => {
+    currentStartPage = Math.min(totalPages - getItemsPerPage() + 1, currentStartPage + getItemsPerPage());
+    generatePagination(currentStartPage);
+};
+
+window.onresize = () => generatePagination(currentStartPage);
+
+// Memuat halaman pertama saat halaman web dimuat
+document.addEventListener("DOMContentLoaded", () => {
+    goToPage(1); // Memastikan halaman pertama ditampilkan
+});
+
+
+
+
+
+
+
+
+
+/*================================================ fungsi btn next dan sebelumnya ===========================================================*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    const buttonsNext = document.querySelectorAll('#btn-next');
+    const buttonsPrev = document.querySelectorAll('#btn-sebelumnya');
+
+    buttonsNext.forEach(button => {
+        button.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                goToPage(currentPage + 1);
+            }
+        });
+    });
+
+    buttonsPrev.forEach(button => {
+        button.addEventListener('click', () => {
+            if (currentPage > 1) {
+                goToPage(currentPage - 1);
+            }
+        });
+    });
+
+    goToPage(1); // Initialize the first page display
+});
+
+// Debounce resize events
+let resizeTimeout;
+window.onresize = () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => generatePagination(currentStartPage), 100);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*================================================= coundown time  ==========================================================================*/
+
+const countdownDuration = 15 * 60 * 1000;  // 15 minutes
+        const endTime = Date.now() + countdownDuration;
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = endTime - now;
+
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('minutes').textContent = ('0' + minutes).slice(-2);
+            document.getElementById('seconds').textContent = ('0' + seconds).slice(-2);
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                document.getElementById('overlay-Time').style.display = 'flex'; // Show overlay
+            } else if (distance <= 2 * 60 * 1000) { // If 2 minutes or less remaining
+                const color = seconds % 2 === 0 ? 'var(--red)' : 'var(--white)';
+                document.getElementById('minutes').style.color = color;
+                document.getElementById('seconds').style.color = color;
+            }
+        }
+
+        let timer = setInterval(updateCountdown, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*================================= menyimpan warna checked pada nomor halaman =======================================================*/
+
+let checkedPages = {};  // Menggunakan objek biasa tanpa localStorage
+
+function handleAnswerClick(page, isChecked) {
+    checkedPages[page] = isChecked;
+    updatePaginationButtonColor(page);
+}
+
+function updatePaginationButtonColor(page) {
+    const pageBtn = document.querySelector(`#pagination-container button[data-page='${page}']`);
+    if (pageBtn) {
+        if (checkedPages[page]) {
+            pageBtn.style.backgroundColor = 'green';
+            pageBtn.style.color = 'white'; // Menambahkan warna teks putih
+        } else {
+            pageBtn.style.backgroundColor = '';
+            pageBtn.style.color = ''; // Mengembalikan warna teks default
+        }
+    }
+}
+
+function generatePagination(startPage) {
+    const itemsPerPage = getItemsPerPage();
+    paginationContainer.innerHTML = '';
+
+    let endPage = Math.min(totalPages, startPage + itemsPerPage - 1);
+
+    for (let page = startPage; page <= endPage; page++) {
+        const pageBtn = document.createElement('button');
+        pageBtn.textContent = page;
+        pageBtn.setAttribute('data-page', page);
+        pageBtn.className = page === currentPage ? 'active' : '';
+        pageBtn.style.backgroundColor = checkedPages[page] ? 'green' : ''; // Set warna hijau jika terceklist
+        pageBtn.style.color = checkedPages[page] ? 'white' : ''; // Set warna teks putih jika terceklist
+        pageBtn.onclick = () => goToPage(page);
+        paginationContainer.appendChild(pageBtn);
+    }
+}
+
+document.querySelectorAll('.radio-input').forEach(input => {
+    input.addEventListener('change', function () {
+        const page = currentPage;
+        handleAnswerClick(page, this.checked);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    localStorage.removeItem('checkedPages');  // Menghapus status dari localStorage saat halaman dimuat
+    checkedPages = {};
+    goToPage(1);
+    generatePagination(currentStartPage);
+});
+
+function resetCheckedStatus() {
+    localStorage.removeItem('checkedPages');
+    checkedPages = {};
+    generatePagination(currentStartPage);
+    updateAllPageButtonColors();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*========================================== Menyimpan pilihan jawaban per halaman ============================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+  generateQuestions();
+  restoreSelections();
+});
+
+let selections = {};  // Objek untuk menyimpan pilihan jawaban per halaman
+
+function displayQuestion(pageNumber, series, correctAnswer) {
+  const container = document.getElementById('container-page-' + pageNumber);
+  const soalElements = container.querySelectorAll('.contsoal p');
+  series.forEach((number, index) => {
+    soalElements[index].textContent = number;
+  });
+
+  let answers = generateWrongAnswers(correctAnswer, 3);
+  answers.push(correctAnswer);
+  answers.sort(() => Math.random() - 0.5); // Acak jawaban
+
+  const jawabanElements = container.querySelectorAll('.jawaban');
+  answers.forEach((answer, index) => {
+    const radioInput = jawabanElements[index].querySelector('input');
+    const label = jawabanElements[index].querySelector('label');
+    radioInput.value = answer;
+    radioInput.name = `jawabanPage${pageNumber}`; // Unik name untuk setiap grup jawaban per halaman
+    radioInput.id = `jawaban${pageNumber}-${index + 1}`; // Unik ID untuk input
+    label.setAttribute('for', radioInput.id);
+    label.textContent = + answer;
+
+    // Listener untuk perubahan pilihan jawaban
+    radioInput.addEventListener('change', function () {
+      updateSelections(pageNumber, radioInput.id);
+    });
+  });
+}
+
+function updateSelections(pageNumber, selectedId) {
+  selections[pageNumber] = selectedId;
+  localStorage.setItem('selections', JSON.stringify(selections));  // Simpan ke localStorage
+  document.querySelectorAll('.jawaban').forEach(div => {
+    div.style.backgroundColor = "";
+    div.style.color = "";
+  });
+}
+
+function restoreSelections() {
+  selections = JSON.parse(localStorage.getItem('selections')) || {};
+  console.log('Restored selections from storage:', selections);
+  Object.keys(selections).forEach(page => {
+    const selectedId = selections[page];
+    console.log('Attempting to restore selection for page:', page, 'with ID:', selectedId);
+    const selectedElement = document.getElementById(selectedId);
+    if (selectedElement) {
+      selectedElement.checked = true;
+      const jawabanElement = selectedElement.closest('.jawaban');
+      if (jawabanElement) {
+        jawabanElement.style.backgroundColor = 'green';
+        jawabanElement.style.color = 'white';
+      } else {
+        console.log('Failed to find .jawaban parent for ID:', selectedId);
+      }
+    } else {
+      console.log('Failed to find element for ID:', selectedId);
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*======================================== memberi warna backgroun .jawaban ===========================================================*/
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Mendapatkan semua input radio dalam elemen dengan kelas 'jawaban'
+  var radioButtons = document.querySelectorAll('.jawaban input[type="radio"]');
+
+  // Fungsi untuk mengatur warna background dan transisi
+  function updateBackgroundColor(event) {
+    // Menghilangkan background hijau dari semua elemen 'jawaban'
+    radioButtons.forEach(function(radio) {
+      var parentDiv = radio.parentNode;
+      if (radio.checked) {
+        parentDiv.style.backgroundColor = '#008000'; // Hijau
+        parentDiv.style.color = 'white';
+      } else {
+        parentDiv.style.backgroundColor = ''; // Kembali ke default
+        parentDiv.style.color = ''; // Kembali ke default
+      }
+      // Menambahkan transisi
+      parentDiv.style.transition = 'background-color 0s ease';
+    });
+  }
+
+  // Menambahkan event listener ke setiap radio button
+  radioButtons.forEach(function(radio) {
+    radio.addEventListener('change', updateBackgroundColor);
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let shouldRefresh = false;
+
+window.addEventListener('beforeunload', function (e) {
+  if (!shouldRefresh) {
+    e.preventDefault();
+    document.getElementById('overlay-Relog').style.display = 'flex';
+    return false;
+  }
+});
+
+document.querySelector('.btn-refresh').addEventListener('click', function() {
+  shouldRefresh = true;
+  window.location.reload();
+});
+
+document.querySelector('.btn-close').addEventListener('click', function() {
+  document.getElementById('overlay-Relog').style.display = 'none';
+});
+
+// Close overlay when clicking outside the notification
+document.getElementById('overlay-Relog').addEventListener('click', function(event) {
+  if (event.target === this) {
+    document.getElementById('overlay-Relog').style.display = 'none';
+  }
+});
+
+// Prevent clicks inside the notification from closing the overlay
+document.getElementById('notification2').addEventListener('click', function(event) {
+  event.stopPropagation();
+});
+
+</script>
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
 </body>
 </html>
