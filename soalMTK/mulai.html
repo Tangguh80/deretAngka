@@ -26,7 +26,7 @@
       <div class="overlay-Timeout" id="overlay-Time">
         <div class="notification">
             <h1>Waktu Habis</h1>
-            <img src="https://raw.githubusercontent.com/Tangguh80/CxProgramer/50c4995f8355238b4f1ce57976fe4032241da13d/time.svg" alt="Time out" style="width: 200px; height: 200px; vertical-align: middle; ">
+            <img src="https://github.com/Tangguh80/deretAngka/blob/main/time%20out.gif?raw=true" alt="Time out" style="width: 200px; height: 200px; vertical-align: middle; ">
             <p>Tekan tombol untuk melihat hasil yang anda kerjakan</p>
             <button class="button">Lihat Hasil</button>
         </div>
@@ -39,7 +39,7 @@
       <div class="notification2" id="notification2">
         <button class="btn-close" id="btn-close">&times;</button>
         <h1>Mengulang?</h1>
-        <img src="https://raw.githubusercontent.com/Tangguh80/deretAngka/a11f3a1256e0d842ae71258622d6f72dc88856b5/refresh.svg" alt="Refresh" style="width: 200px; height: 200px; vertical-align: middle; animation: spin 30s linear infinite;">
+        <img src="https://github.com/Tangguh80/deretAngka/blob/main/refresh.png?raw=true" alt="Refresh" style="width: 200px; height: 200px; vertical-align: middle; animation: spin 30s linear infinite;">
         <p>Jika anda mengulang Progress yang anda kerjakan tidak akan tersimpan</p>
         <button class="btn-refresh">Refresh</button>
       </div>
@@ -725,8 +725,9 @@ let shouldRefresh = false;
 window.addEventListener('beforeunload', function (e) {
   if (!shouldRefresh) {
     e.preventDefault();
+    e.returnValue = 'none'; // Required for most browsers to show the dialog
     document.getElementById('overlay-Relog').style.display = 'flex';
-    return false;
+    return 'none';
   }
 });
 
@@ -750,6 +751,8 @@ document.getElementById('overlay-Relog').addEventListener('click', function(even
 document.getElementById('notification2').addEventListener('click', function(event) {
   event.stopPropagation();
 });
+
+
 
 </script>
 
