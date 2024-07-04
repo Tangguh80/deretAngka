@@ -91,6 +91,7 @@ body{
 
 
   .overlay-Timeout {
+    z-index: 1;
     position: fixed;
     top: 0;
     left: 0;
@@ -179,6 +180,7 @@ body{
 
 
 .overlay-Relog {
+  z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
@@ -305,6 +307,7 @@ to {
 }
 
 .btn-kiri, .btn-kanan {
+  z-index: -0;
     margin: 0 10px;
     height: 45px;
     width: 45px;
@@ -392,45 +395,107 @@ to {
 
 
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+}
+
 .container {
-    display: flex;
-    margin: 0 55px;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: var(--white);
-  }
+  display: flex;
+  margin: 0 55px;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: var(--white);
+  animation: fadeIn 0.5s ease-in-out;
+}
 
-  .contsoal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 48%;
-    height: 48%; 
-    padding: 30px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border: 2px solid var(--birumuda);
-  }
+.contsoal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48%;
+  height: 48%;
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 2px solid var(--birumuda);
+  animation: fadeInUp 0.5s ease-in-out;
+}
 
-  .contsoal p {
-    margin: 0 5px;
-    font-weight: bold;
-    font-size: 20px;
+@keyframes rubberBand {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, .95, 1);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.contsoal p {
+  margin: 0 5px;
+  font-weight: bold;
+  font-size: 20px;
+  animation: rubberBand 1s ease-out;
 }
 
 
 
 
 
-  .contjawaban {
-    width: 48%; 
-    padding: 30px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border: 2px solid var(--birumuda);
-  }
+
+
+.contjawaban {
+  width: 48%;
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 2px solid var(--birumuda);
+  animation: fadeInUp 0.5s ease-in-out;
+}
 
 
 
@@ -542,6 +607,10 @@ to {
         margin-bottom: 10px;
     }
 
+    .notification {
+      max-width: 40%;
+    }
+
     .notification2 {
       max-width: 40%;
     }
@@ -581,6 +650,10 @@ to {
       border: 1px solid #ccc;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       border: 2px solid var(--birumuda);
+    }
+
+    .notification {
+      max-width: 80%;
     }
 
     .notification2 {
